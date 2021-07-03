@@ -1,14 +1,7 @@
-# ansible-swarm-clowder
-This repository does the following things:
-* create a HEAT stack
-* install neccessary tools/libraries
-* deploy a swarm cluster
-* deploy Clowder in that swarm cluster
-All is done via a Makefile
+This repository performs end-to-end deployment of Clowder using Docker Swarm in Openstack. Makefile is used to control all the steps. 
+This is the simplified version of github.com/UQ-RCC/ansible-swarm-clowder. 
 
-
-Thanks to Zane for his work on Makefile and templates ...
-
+Thanks to Zane for his work on Makefile and templates. 
 
 # Deployment steps
 
@@ -24,28 +17,31 @@ Thanks to Zane for his work on Makefile and templates ...
 
 * edit setupenv-openstack. Make sure you get the IMAGE_ID and OS_PROJECT_NAME right.The IMAGE_ID should be a Ubuntu image.  
 
-* make stack
+* **make stack**
 * Create a DNS that points to the first master node, this DNS should match clowder_host field in vars/secrets.yml
 
 ## Deploy Docker swarm
 
-* make init-swarm
-* To inspect swarm cluster: make inspect-swarm
+* edit Clowder's custom.conf and custom.play.plugin at roles/clowder-swarm-setup/templates. 
+* **make init-swarm**
+* To inspect swarm cluster: **make inspect-swarm**
+
 
 ## Deploy Clowder in swarm
 
-* make deploy-clowder
+* **make deploy-clowder**
+
+### 
 
 ## Destroy Clowder in swarm
 
-* make destroy-clowder
+* **make destroy-clowder**
 
 ## Destroy swarm cluster
 
-* make destroy-swarm
+* **make destroy-swarm**
 
 ## Delete stack
 
-* make destroy-stack
-
+* **make destroy-stack**
 
