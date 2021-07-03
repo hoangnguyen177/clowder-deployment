@@ -1,4 +1,13 @@
-This repository performs a complete deployment of Clowder in Docker Swarm on Openstack using Ansible. Makefile is used to control all the steps. 
+This repository performs a complete deployment of Clowder in Docker Swarm on Openstack using Ansible. 
+Once deployed, the following services are going to be created: 
+
+* a mongodb cluster spanning across the slave nodes
+* a elasticearch cluster spanning accross the slave nodes
+* clowder instances spanning across the slave nodes
+* traefik instances spanning across master nodes
+* a glusterfs shared amongst slave nodes for upload files, thumbnails
+
+Makefile is used to control all the steps. 
 This is the simplified version of github.com/UQ-RCC/ansible-swarm-clowder. 
 
 Thanks to Zane Van Iperen for his work on Makefile and templates. 
