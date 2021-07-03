@@ -11,6 +11,7 @@ Thanks to Zane Van Iperen for his work on Makefile and templates.
 * Download the Openstack RC file
 * Ansible version 2.9 
 * Make installed, in ubuntu: sudo apt-get install build-essential
+* Python 3
 * Create vars/secrets.yml based on vars/secrets.yml.example
 
 ## Create HEAT stack for Docker Swarm
