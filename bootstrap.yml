@@ -80,4 +80,4 @@
 
   ##########################################    
   roles:
-    - { role: glusterfs, volname: "{{ gluster_volname }}", server_list: "{{ allslaves_second_ips }}", volmnt: "{{ gluster_volmnt }}", replicas: "{{ gluster_replicas }}", brickmnt: "{{ gluster_brickmnt }}" }
+    - { role: glusterfs, volname: "{{ gluster_volname }}", server_list: "{{ allslaves_ips }}", volmnt: "{{ gluster_volmnt }}", replicas: "{{ gluster_replicas }}", brickmnt: "{{ gluster_brickmnt }}" }

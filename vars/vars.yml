@@ -1,13 +1,9 @@
 ---
-allnodes_ips: "{{ ( groups['SwarmMaster'] + groups['SwarmSlave'] ) | map('extract', hostvars, ['ansible_ssh_host']) | list }}"
-allnodes_second_ips: "{{ ( groups['SwarmMaster'] + groups['SwarmSlave'] ) | map('extract', hostvars, ['secondary-ip']) | list }}"
-allslaves_second_ips: "{{ groups['SwarmSlave'] | map('extract', hostvars, ['secondary-ip']) | list }}"
-allnodes_names: "{{ ( groups['SwarmMaster'] + groups['SwarmSlave'] ) | map('extract', hostvars, ['inventory_hostname']) | list }}"
-master_ips: "{{ groups['SwarmMaster'] | map('extract', hostvars, ['secondary-ip']) | list }}"
-total_nodes: "{{ groups['SwarmMaster'] | list | length + groups['SwarmSlave'] | list | length }}"
+allslaves_ips: "{{ groups['SwarmSlave'] | map('extract', hostvars, ['ansible_ssh_host']) | list }}"
+master_ips: "{{ groups['SwarmMaster'] | map('extract', hostvars, ['ansible_ssh_host']) | list }}"
 
 gluster_brickmnt: /mnt/glusters
-gluster_replicas: 3
+gluster_replicas: "{{ groups['SwarmSlave'] | list | length }}"
 gluster_volmnt: /clowder_data/
 gluster_volname: gfs
 
@@ -19,7 +15,7 @@ mongo_image: mongo:3.6-xenial
 # traefik configs
 traefik_image: traefik:1.7
 # clowder
-clowder_image: uqrcc/clowder:latest
+clowder_image: clowder/clowder:1.17.0
 #rabbit mq
 rabbitmq_image: rabbitmq:management-alpine
 # monitor

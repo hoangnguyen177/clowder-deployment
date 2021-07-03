@@ -27,7 +27,7 @@
   #     msg: 
   #       # - "{{ hostvars[inventory_hostname][inventory_hostname] }}"
   #       - "{{ server_list }}"
-  #       - "{{ hostvars[inventory_hostname]['secondary-ip'] }}"
+  #       - "{{ hostvars[inventory_hostname]['ansible_ssh_host'] }}"
   #       # - "{{ inventory_hostname }}"
   #       # - "{{ ansible_default_ipv4.address }}"
   #   run_once: true
@@ -40,7 +40,7 @@
       cluster: "{{ server_list }}"
       replicas: "{{ replicas }}"
       state: present
-      host: "{{ hostvars[inventory_hostname]['secondary-ip'] }}"
+      host: "{{ hostvars[inventory_hostname]['ansible_ssh_host'] }}"
       force: true
     run_once: true
 

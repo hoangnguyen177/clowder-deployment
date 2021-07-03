@@ -85,11 +85,7 @@ for s in servers:
 	hvars['initial_ssh_user'] = s.metadata['initial_ssh_user']
 	networks = s.networks.keys()
 	for network in networks:
-		if network == 'qld':
-			hvars['ansible_ssh_host'] = s.networks['qld'][0]
-			hvars['secondary-ip'] = s.networks['qld-data'][0]
-		else:
-			hvars['ansible_ssh_host'] = s.networks[network][0]
+		hvars['ansible_ssh_host'] = s.networks[network][0]
 	volumes = [v for v in nova.volumes.get_server_volumes(s.id) if v.device != '/dev/vda']
 	if len(volumes) == 0:
 		continue
