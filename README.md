@@ -28,7 +28,7 @@ Thanks to Zane Van Iperen for his work on Makefile and templates.
 * edit setupenv-openstack. Make sure you get the IMAGE_ID and OS_PROJECT_NAME right.The IMAGE_ID should be a Ubuntu image.  
 
 * **make stack**
-* Create a DNS that points to the first master node, this DNS should match clowder_host field in vars/secrets.yml
+* Create a FQDN that points to the first master node, this FQDN should match clowder_host field in vars/secrets.yml
 
 ## Deploy Docker swarm
 
