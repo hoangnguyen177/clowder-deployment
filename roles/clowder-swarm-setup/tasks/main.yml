@@ -288,6 +288,7 @@
                   - "traefik.redirectorservice.frontend.entryPoints=http"
                   - "traefik.redirectorservice.frontend.redirect.entryPoint=https"
                   - "traefik.webservice.frontend.entryPoints=https"
+                  - "traefik.backend.loadbalancer.stickiness=true"
 
 
             clowder:
@@ -319,7 +320,7 @@
                   - "traefik.redirectorservice.frontend.entryPoints=http"
                   - "traefik.redirectorservice.frontend.redirect.entryPoint=https"
                   - "traefik.webservice.frontend.entryPoints=https"
-                  - "traefik.backend.loadbalancer.sticky=true"
+                  - "traefik.backend.loadbalancer.stickiness=true"
 
 
             ############### rabbit mq ##################
