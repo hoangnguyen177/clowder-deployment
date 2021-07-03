@@ -2,6 +2,7 @@ export SSH_KEY_NAME=calliope
 export STACK_NAME=dev
 export OS_PROJECT_NAME=QCIF_Devops
 export ANSIBLE_HOST_KEY_CHECKING=False
+export IMAGE_ID=816baafd-75d2-437f-9d17-db9d215dab74
 export node_count_master=3
 export node_count_slave=3
 export node_flavour_master=m3.small

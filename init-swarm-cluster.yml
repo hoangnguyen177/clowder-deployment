@@ -10,7 +10,7 @@
   - name: Init swarm on the first node
     docker_swarm:
       state: present
-      advertise_addr: "{{ hostvars[inventory_hostname]['secondary-ip'] }}"
+      advertise_addr: "{{ hostvars[inventory_hostname]['ansible_ssh_host'] }}"
       tls: yes
       validate_certs: yes
     register: result
@@ -30,7 +30,7 @@
     debug:
       msg: 
       - "remote adds: {{ master_ips }}"
-      - "advertise add: {{ hostvars[inventory_hostname]['secondary-ip'] }}"
+      - "advertise add: {{ hostvars[inventory_hostname]['ansible_ssh_host'] }}"
       - "Join token manager: {{ join_token_manager }}"
       - "Join token worker: {{ join_token_worker }}"
 
@@ -40,7 +40,7 @@
     docker_swarm:
       state: join
       join_token: "{{ join_token_manager }}"
-      advertise_addr: "{{ hostvars[inventory_hostname]['secondary-ip'] }}"
+      advertise_addr: "{{ hostvars[inventory_hostname]['ansible_ssh_host'] }}"
       remote_addrs: "{{ master_ips }}"
     when:
       - inventory_hostname in groups['SwarmMaster']
@@ -50,7 +50,7 @@
     docker_swarm:
       state: join
       join_token: "{{ join_token_worker }}"
-      advertise_addr: "{{ hostvars[inventory_hostname]['secondary-ip'] }}"
+      advertise_addr: "{{ hostvars[inventory_hostname]['ansible_ssh_host'] }}"
       remote_addrs: "{{ master_ips }}"
     when:
       - inventory_hostname not in groups['SwarmMaster']

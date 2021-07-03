@@ -14,7 +14,7 @@ update: check-vars validate
 
 ${HEAT_TEMPLATE}: ${HEAT_TEMPLATE}.j2 gen-swarm-template.py
 	./gen-swarm-template.py \
-		--node-image-id=03433e1b-d092-40eb-bbce-cd3842899001 \
+		--node-image-id=${IMAGE_ID} \
 		--node-initial-user=ubuntu \
 		--node-flavour-master=m3.small \
 		--node-flavour-slave=m3.medium \
@@ -39,11 +39,10 @@ inventory.yml: ${HEAT_TEMPLATE} make_inventory_openstack.py
 
 inventories: check-vars inventory.yml
 
-# bootstrap: inventories bootstrap.yml
-bootstrap: bootstrap.yml
+bootstrap: inventories bootstrap.yml
 	ansible-playbook -i inventory.yml bootstrap.yml
 
-init-swarm: init-swarm-cluster.yml
+init-swarm: bootstrap init-swarm-cluster.yml
 	ansible-playbook -i inventory.yml init-swarm-cluster.yml
 
 inspect-swarm: inspect-swarm-cluster.yml

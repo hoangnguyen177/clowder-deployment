@@ -54,7 +54,7 @@
   - name: Install Docker CE
     apt:
       name: ['docker-ce', 'docker-ce-cli', 'containerd.io']
-      update_cache: yes
+      update_cache: no
       
   - name: Install prerequisites for docker-compose
     apt:
