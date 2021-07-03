@@ -1,0 +1,17 @@
+---
+
+clowder_register: 'false'
+clowder_context: /
+clowder_ssl: 'true'
+rabbitmq_exchange: clowder
+rabbitmq_clowder_url: http://clowder:9000 # for local - or things like https://clowder-docker.ncsa.illinois.edu/clowder/ for remote
+smtp_mock: 'true'
+smtp_server: smtp
+
+
+# rabbitmq
+rabbitmq_default_user: clowder
+rabbitmq_mgmt_port: 15672
+rabbitmq_mgmt_path: /rabbitmq
+
+
