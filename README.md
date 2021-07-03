@@ -1,7 +1,7 @@
 This repository performs end-to-end deployment of Clowder using Docker Swarm in Openstack. Makefile is used to control all the steps. 
 This is the simplified version of github.com/UQ-RCC/ansible-swarm-clowder. 
 
-Thanks to Zane for his work on Makefile and templates. 
+Thanks to Zane Van Iperen for his work on Makefile and templates. 
 
 # Deployment steps
 
