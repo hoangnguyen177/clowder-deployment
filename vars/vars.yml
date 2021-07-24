@@ -7,6 +7,7 @@ gluster_replicas: "{{ groups['SwarmSlave'] | list | length }}"
 gluster_volmnt: /clowder_data/
 gluster_volname: gfs
 
+total_consul_slave_nodes: 2
 ### images
 # elatic search
 elastic_search_image: elasticsearch:2.4.6
@@ -14,6 +15,7 @@ elastic_search_image: elasticsearch:2.4.6
 mongo_image: mongo:3.6-xenial
 # traefik configs
 traefik_image: traefik:1.7
+consul_image: consul:1.9.8
 # clowder
 clowder_image: clowder/clowder:1.17.0
 #rabbit mq
